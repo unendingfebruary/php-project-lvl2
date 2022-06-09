@@ -1,0 +1,14 @@
+{
+    "name": "hexlet/code",
+    "description": "hexlet project lvl2",
+    "license": "MIT",
+    "bin": [
+        "bin/gendiff"
+    ],
+    "autoload": {
+        "files": []
+    },
+    "require": {
+        "docopt/docopt": "^1.0"
+    }
+}
