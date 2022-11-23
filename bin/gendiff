@@ -2,6 +2,8 @@
 
 <?php
 
+use function Differ\Differ\genDiff;
+
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -25,5 +27,14 @@ Options:
 DOC;
 
 $args = Docopt::handle($doc);
-foreach ($args as $k=>$v)
-    echo $k.': '.json_encode($v).PHP_EOL;
+
+$filePath1 = $args->args['<firstFile>'];
+$filePath2 = $args->args['<secondFile>'];
+$format = $args->args['--format'];
+
+try {
+    $diff = genDiff($filePath1, $filePath2);
+    print_r($diff);
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
