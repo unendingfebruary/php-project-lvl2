@@ -1,4 +1,4 @@
-name: Differ
+name: Linter and tests
 
 on:
   - push
