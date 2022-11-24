@@ -1,5 +1,5 @@
-# composer dir
 /vendor/
-
-# phpstorm project files
 .idea
+logs
+*.cache
+build
