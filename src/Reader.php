@@ -9,7 +9,7 @@ use Exception;
  * @return bool|string
  * @throws Exception
  */
-function getContent($filePath): bool|string
+function getContent($filePath)
 {
     if (!file_exists($filePath)) {
         throw new Exception("File '$filePath' does not exists");
