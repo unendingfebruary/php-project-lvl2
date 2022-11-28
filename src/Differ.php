@@ -3,6 +3,8 @@
 namespace Differ\Differ;
 
 use function Differ\Reader\getContent;
+use function Differ\Parser\parse;
+use function Differ\Reader\getFileFormat;
 
 const LEFT_SPACES = 2;
 
@@ -17,8 +19,11 @@ function genDiff($firstFilePath, $secondFilePath): string
     $firstFileContent = getContent($firstFilePath);
     $secondFileContent = getContent($secondFilePath);
 
-    $firstData = json_decode($firstFileContent);
-    $secondData = json_decode($secondFileContent);
+    $firstFileFormat = getFileFormat($firstFilePath);
+    $secondFileFormat = getFileFormat($secondFilePath);
+
+    $firstData = parse($firstFileContent, $firstFileFormat);
+    $secondData = parse($secondFileContent, $secondFileFormat);
 
     $keys = getKeys($firstData, $secondData);
     $spaces = str_repeat(' ', LEFT_SPACES);

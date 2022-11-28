@@ -17,3 +17,12 @@ function getContent($filePath)
 
     return file_get_contents($filePath);
 }
+
+/**
+ * @param $filePath
+ * @return array|string|string[]
+ */
+function getFileFormat($filePath)
+{
+    return pathinfo($filePath, PATHINFO_EXTENSION);
+}
