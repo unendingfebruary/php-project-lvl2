@@ -33,7 +33,7 @@ $filePath2 = $args->args['<secondFile>'];
 $format = $args->args['--format'];
 
 try {
-    $diff = genDiff($filePath1, $filePath2);
+    $diff = genDiff($filePath1, $filePath2, $format);
     print_r($diff);
 } catch (\Exception $e) {
     echo $e->getMessage();

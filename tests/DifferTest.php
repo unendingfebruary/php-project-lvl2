@@ -16,15 +16,16 @@ class DifferTest extends TestCase
      * @param $file1
      * @param $file2
      * @param $result
+     * @param $format
      * @return void
      * @throws Exception
      */
-    public function testGenDiff($file1, $file2, $result): void
+    public function testGenDiff($file1, $file2, $result, $format): void
     {
         $pathToFile1 = $this->fixturesPath . $file1;
         $pathToFile2 = $this->fixturesPath . $file2;
         $expected = file_get_contents($this->fixturesPath . $result);
-        $actual = genDiff($pathToFile1, $pathToFile2);
+        $actual = genDiff($pathToFile1, $pathToFile2, $format);
 
         $this->assertEquals($expected, $actual);
     }
@@ -35,8 +36,8 @@ class DifferTest extends TestCase
     public function dataProvider(): array
     {
         return [
-            ['file1.json', 'file2.json', 'result.txt'],
-            ['file1.yaml', 'file2.yaml', 'result.txt'],
+            ['file1.json', 'file2.json', 'result.txt', 'stylish'],
+            ['file1.yaml', 'file2.yaml', 'result.txt', 'stylish'],
         ];
     }
 }
