@@ -36,8 +36,10 @@ class DifferTest extends TestCase
     public function dataProvider(): array
     {
         return [
-            ['file1.json', 'file2.json', 'result.txt', 'stylish'],
-            ['file1.yaml', 'file2.yaml', 'result.txt', 'stylish'],
+            ['file1.json', 'file2.json', 'stylish-result.txt', 'stylish'],
+            ['file1.yaml', 'file2.yaml', 'stylish-result.txt', 'stylish'],
+            ['file1.json', 'file2.json', 'plain-result.txt', 'plain'],
+            ['file1.yaml', 'file2.yaml', 'plain-result.txt', 'plain'],
         ];
     }
 }

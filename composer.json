@@ -11,8 +11,9 @@
             "src/Reader.php",
             "src/Parser.php",
             "src/Builder.php",
-            "src/Render.php",
-            "src/Formatters/Stylish.php"
+            "src/Formatters.php",
+            "src/Formatters/Stylish.php",
+            "src/Formatters/Plain.php"
         ]
     },
     "require": {

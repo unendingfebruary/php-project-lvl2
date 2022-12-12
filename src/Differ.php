@@ -6,7 +6,7 @@ use function Differ\Builder\build;
 use function Differ\Reader\getContent;
 use function Differ\Parser\parse;
 use function Differ\Reader\getFileFormat;
-use function Differ\Render\render;
+use function Differ\Formatters\render;
 
 /**
  * @param $firstFilePath
