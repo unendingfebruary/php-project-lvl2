@@ -9,13 +9,13 @@ use function Differ\Reader\getFileFormat;
 use function Differ\Formatters\render;
 
 /**
- * @param $firstFilePath
- * @param $secondFilePath
+ * @param string $firstFilePath
+ * @param string $secondFilePath
  * @param string $format
  * @return string
  * @throws \Exception
  */
-function genDiff($firstFilePath, $secondFilePath, string $format = 'stylish'): string
+function genDiff(string $firstFilePath, string $secondFilePath, string $format = 'stylish'): string
 {
     $firstFileContent = getContent($firstFilePath);
     $secondFileContent = getContent($secondFilePath);

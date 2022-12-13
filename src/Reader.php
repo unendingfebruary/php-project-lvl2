@@ -5,11 +5,11 @@ namespace Differ\Reader;
 use Exception;
 
 /**
- * @param $filePath
- * @return bool|string
+ * @param string $filePath
+ * @return false|string
  * @throws Exception
  */
-function getContent($filePath)
+function getContent(string $filePath): bool|string
 {
     if (!file_exists($filePath)) {
         throw new Exception("File '$filePath' does not exists");
@@ -19,10 +19,10 @@ function getContent($filePath)
 }
 
 /**
- * @param $filePath
- * @return array|string|string[]
+ * @param string $filePath
+ * @return array|string
  */
-function getFileFormat($filePath)
+function getFileFormat(string $filePath): array|string
 {
     return pathinfo($filePath, PATHINFO_EXTENSION);
 }

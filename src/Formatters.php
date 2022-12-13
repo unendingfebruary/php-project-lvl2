@@ -12,12 +12,12 @@ const PLAIN_FORMAT = 'plain';
 const JSON_FORMAT = 'json';
 
 /**
- * @param $data
- * @param $format
+ * @param mixed $data
+ * @param string $format
  * @return string
  * @throws Exception
  */
-function render($data, $format): string
+function render(mixed $data, string $format): string
 {
     return match ($format) {
         STYLISH_FORMAT => formatToStylish($data),

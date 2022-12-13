@@ -11,12 +11,12 @@ use const Differ\Builder\REMOVED_NODE;
 use const Differ\Builder\UNCHANGED_NODE;
 
 /**
- * @param $tree
+ * @param mixed $tree
  * @param string $path
  * @return string
  * @throws Exception
  */
-function formatToPlain($tree, string $path = ''): string
+function formatToPlain(mixed $tree, string $path = ''): string
 {
     $formatTree = function ($node) use ($path) {
         $property = $path . $node['key'];
@@ -35,17 +35,17 @@ function formatToPlain($tree, string $path = ''): string
 
     $formatted = array_map($formatTree, $tree);
     $result = array_filter($formatted, function ($item) {
-        return !empty($item);
+        return $item !== [];
     });
 
     return implode(PHP_EOL, $result);
 }
 
 /**
- * @param $value
+ * @param mixed $value
  * @return string
  */
-function stringify($value): string
+function stringify(mixed $value): string
 {
     if (is_bool($value)) {
         return $value ? 'true' : 'false';

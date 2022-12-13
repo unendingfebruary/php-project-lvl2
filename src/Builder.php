@@ -2,6 +2,8 @@
 
 namespace Differ\Builder;
 
+use function Functional\sort;
+
 const ADDED_NODE = 'added';
 const REMOVED_NODE = 'removed';
 const CHANGED_NODE = 'changed';
@@ -9,11 +11,11 @@ const UNCHANGED_NODE = 'unchanged';
 const INTERNAL_NODE = 'internal';
 
 /**
- * @param $firstData
- * @param $secondData
- * @return array|array[]
+ * @param mixed $firstData
+ * @param mixed $secondData
+ * @return array
  */
-function build($firstData, $secondData): array
+function build(mixed $firstData, mixed $secondData): array
 {
     $keys = getKeys($firstData, $secondData);
 
@@ -67,30 +69,29 @@ function build($firstData, $secondData): array
 }
 
 /**
- * @param $firstData
- * @param $secondData
+ * @param mixed $firstData
+ * @param mixed $secondData
  * @return array
  */
-function getKeys($firstData, $secondData): array
+function getKeys(mixed $firstData, mixed $secondData): array
 {
     $firstDataKeys = array_keys(get_object_vars($firstData));
     $secondDataKeys = array_keys(get_object_vars($secondData));
 
     $keys = array_unique(array_merge($firstDataKeys, $secondDataKeys));
-    sort($keys, SORT_STRING | SORT_FLAG_CASE);
 
-    return $keys;
+    return sort($keys, fn($left, $right) => strcmp($left, $right));
 }
 
 /**
- * @param $key
- * @param $status
- * @param $oldValue
- * @param $newValue
- * @param $child
+ * @param string $key
+ * @param string $status
+ * @param mixed $oldValue
+ * @param mixed $newValue
+ * @param mixed|null $child
  * @return array
  */
-function buildNode($key, $status, $oldValue, $newValue, $child = null): array
+function buildNode(string $key, string $status, mixed $oldValue, mixed $newValue, mixed $child = null): array
 {
     return [
       'key' => $key,

@@ -14,12 +14,12 @@ const BASE_INDENT = 4;
 const SIGN_INDENT = 2;
 
 /**
- * @param $tree
+ * @param mixed $tree
  * @param int $depth
  * @return string
  * @throws Exception
  */
-function formatToStylish($tree, int $depth = 1): string
+function formatToStylish(mixed $tree, int $depth = 1): string
 {
     $indent = getIndent($depth);
     $indentWithSign = getIndent($depth, SIGN_INDENT);
@@ -64,11 +64,11 @@ function getIndent($depth, int $signIndent = 0): string
 }
 
 /**
- * @param $value
- * @param $depth
+ * @param mixed $value
+ * @param int $depth
  * @return string
  */
-function stringify($value, $depth): string
+function stringify(mixed $value, int $depth): string
 {
     if (is_bool($value)) {
         return $value ? 'true' : 'false';
@@ -96,11 +96,11 @@ function stringify($value, $depth): string
 }
 
 /**
- * @param $data
- * @param $depth
+ * @param string $data
+ * @param int $depth
  * @return string
  */
-function addBraces($data, $depth): string
+function addBraces(string $data, int $depth): string
 {
     $indent = getIndent($depth);
     $openBrace = "{" . PHP_EOL;

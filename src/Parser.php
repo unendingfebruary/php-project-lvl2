@@ -6,20 +6,16 @@ use Exception;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * @param $data
- * @param $format
+ * @param mixed $data
+ * @param string $format
  * @return mixed
  * @throws Exception
  */
-function parse($data, $format)
+function parse(mixed $data, string $format): mixed
 {
-    switch ($format) {
-        case 'json':
-            return json_decode($data);
-        case 'yaml':
-        case 'yml':
-            return Yaml::parse($data, Yaml::PARSE_OBJECT_FOR_MAP);
-        default:
-            throw new Exception("The file format '$format' is not supported");
-    }
+    return match ($format) {
+        'json' => json_decode($data),
+        'yaml', 'yml' => Yaml::parse($data, Yaml::PARSE_OBJECT_FOR_MAP),
+        default => throw new Exception("The file format '$format' is not supported"),
+    };
 }
