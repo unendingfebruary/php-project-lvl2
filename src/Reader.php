@@ -20,9 +20,9 @@ function getContent(string $filePath): bool|string
 
 /**
  * @param string $filePath
- * @return array|string
+ * @return string
  */
-function getFileFormat(string $filePath): array|string
+function getFileFormat(string $filePath): string
 {
     return pathinfo($filePath, PATHINFO_EXTENSION);
 }

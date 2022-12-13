@@ -54,11 +54,11 @@ function formatToStylish(mixed $tree, int $depth = 1): string
 }
 
 /**
- * @param $depth
+ * @param int $depth
  * @param int $signIndent
  * @return string
  */
-function getIndent($depth, int $signIndent = 0): string
+function getIndent(int $depth, int $signIndent = 0): string
 {
     return str_repeat(' ', BASE_INDENT * $depth - $signIndent);
 }

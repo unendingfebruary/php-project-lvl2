@@ -11,11 +11,11 @@ const UNCHANGED_NODE = 'unchanged';
 const INTERNAL_NODE = 'internal';
 
 /**
- * @param mixed $firstData
- * @param mixed $secondData
+ * @param object $firstData
+ * @param object $secondData
  * @return array
  */
-function build(mixed $firstData, mixed $secondData): array
+function build(object $firstData, object $secondData): array
 {
     $keys = getKeys($firstData, $secondData);
 
@@ -69,11 +69,11 @@ function build(mixed $firstData, mixed $secondData): array
 }
 
 /**
- * @param mixed $firstData
- * @param mixed $secondData
+ * @param object $firstData
+ * @param object $secondData
  * @return array
  */
-function getKeys(mixed $firstData, mixed $secondData): array
+function getKeys(object $firstData, object $secondData): array
 {
     $firstDataKeys = array_keys(get_object_vars($firstData));
     $secondDataKeys = array_keys(get_object_vars($secondData));

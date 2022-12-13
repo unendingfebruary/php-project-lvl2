@@ -7,11 +7,11 @@ use Symfony\Component\Yaml\Yaml;
 
 /**
  * @param mixed $data
- * @param string $format
+ * @param mixed $format
  * @return mixed
  * @throws Exception
  */
-function parse(mixed $data, string $format): mixed
+function parse(mixed $data, mixed $format): mixed
 {
     return match ($format) {
         'json' => json_decode($data),
