@@ -11,11 +11,11 @@ use function Differ\Formatters\render;
 /**
  * @param $firstFilePath
  * @param $secondFilePath
- * @param $format
+ * @param string $format
  * @return string
  * @throws \Exception
  */
-function genDiff($firstFilePath, $secondFilePath, $format): string
+function genDiff($firstFilePath, $secondFilePath, string $format = 'stylish'): string
 {
     $firstFileContent = getContent($firstFilePath);
     $secondFileContent = getContent($secondFilePath);
