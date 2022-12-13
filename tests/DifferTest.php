@@ -16,11 +16,11 @@ class DifferTest extends TestCase
      * @param $file1
      * @param $file2
      * @param $result
-     * @param $format
+     * @param string $format
      * @return void
      * @throws Exception
      */
-    public function testGenDiff($file1, $file2, $result, $format): void
+    public function testGenDiff($file1, $file2, $result, string $format = 'stylish'): void
     {
         $pathToFile1 = $this->fixturesPath . $file1;
         $pathToFile2 = $this->fixturesPath . $file2;
