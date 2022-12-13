@@ -59,5 +59,9 @@ function stringify($value): string
         return '[complex value]';
     }
 
+    if (is_int($value)) {
+        return $value;
+    }
+
     return "'{$value}'";
 }
