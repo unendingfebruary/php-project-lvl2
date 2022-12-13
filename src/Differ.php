@@ -25,5 +25,5 @@ function genDiff($firstFilePath, $secondFilePath, string $format = 'stylish'): s
 
     $tree = build($firstData, $secondData);
 
-    return render($tree, $format) . PHP_EOL;
+    return render($tree, $format);
 }
